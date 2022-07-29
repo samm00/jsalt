@@ -32,7 +32,7 @@ Here, zero-shot multilingual pitch reconstruction is performed using the above m
 
 TODO
 
-### Methods
+### Code
 
 #### gather_data.py
 
@@ -48,7 +48,17 @@ Run with `for i in {0..LEN_TRAIN/500}; do make_pitch_data.py $i; done;`
 
 Combine the different outputs of make_pitch_data.py into one json
 
-#### 
+#### get_hidden_states.py
+
+Use S3PRL to get hidden states for all data
+
+#### combine_hidden_states.py
+
+TODO
+
+#### linear_regress.py
+
+TODO
 
 ### Data Examples
 
