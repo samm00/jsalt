@@ -16,4 +16,5 @@ TODO
 
 ### Pitch Reconstruction
 
-![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction"){:height="36px" width="36px"}.
+![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
+[[img/pitch_recon.png|width=400px]]
