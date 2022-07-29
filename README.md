@@ -38,7 +38,17 @@ TODO
 
 Gather data from FLEURS
 
-#### collect_
+#### make_pitch_data.py
+
+Generate labels using pYAAPT 
+
+Run with `for i in {0..LEN_TRAIN/500}; do make_pitch_data.py $i; done;`
+
+#### combine_pitch_data.py
+
+Combine the different outputs of make_pitch_data.py into one json
+
+#### 
 
 ### Data Examples
 
