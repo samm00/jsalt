@@ -10,10 +10,6 @@ This repository highlights a pitch reconstruction task which investigates cross-
 
 Audio data is pulled from the [FLERUS dataset](https://huggingface.co/datasets/google/fleurs), and pitch labels are created using [pYAAPT](http://bjbschmitt.github.io/AMFM_decompy/pYAAPT.html).
 
-### Data Examples
-
-TODO
-
 ### Pitch Reconstruction
 
 Pitch reconstruction starts off with an audio file.
@@ -24,3 +20,6 @@ Separately, a pitch tracking algorithm (in this case, [pYAAPT](http://bjbschmitt
 
 ![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
 
+### Data Examples
+
+TODO
