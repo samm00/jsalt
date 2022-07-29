@@ -8,7 +8,7 @@ import numpy as np
 
 batches = 25
 
-name = "hubert"
+name = 'hubert' # update with desired model
 model = S3PRLUpstream(name).cuda()
 model.eval()
 
