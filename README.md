@@ -18,9 +18,15 @@ This audio file is then fed into a pre-trained model (ie. HuBERT, Mockingjay, et
 
 Separately, a pitch tracking algorithm (in this case, [pYAAPT](http://bjbschmitt.github.io/AMFM_decompy/pYAAPT.html), others like kaldi can work as well) is used to create "ground truth" pitch information for the audio file (since FLEURS is not labeled for pitch).
 
-A linear regression is then run against the pYAAPT pitch frames and the hidden states of the model, after aligning the frames. Mean Squared Error is calculated. 
+A linear regression is then run against the pYAAPT pitch frames and the hidden states of the model, after aligning the frames. Mean Squared Error is calculated, as if the hidden states correlate with the pitch information frame by frame, we can say that the model's internal representation does include some pitch information. 
 
 ![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
+
+### Cross-Lingual Transfer in Pitch Reconstruction
+
+Many of pre-trained models are pre-trained only on Enlgish data. This begs the question: how well do these models capture pitch information from other languages? Does learning to represent pitch in one language transfer over to others?
+
+
 
 ### Data Examples
 
