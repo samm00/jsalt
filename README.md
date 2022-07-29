@@ -1,6 +1,6 @@
 # jsalt
 
-WORK IN PROGRESS -- Information is in the process of being added
+>>> WORK IN PROGRESS -- Information is in the process of being added
 
 ### Introduction
 
