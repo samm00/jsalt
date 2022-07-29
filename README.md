@@ -16,4 +16,4 @@ TODO
 
 ### Pitch Reconstruction
 
-![Pitch Reconstruction Diagram](img/pitch_reconstruct.png "Pitch Reconstruction")
+![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
