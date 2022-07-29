@@ -1,5 +1,7 @@
 # jsalt
 
+WORK IN PROGRESS -- Information is in the process of being added
+
 ### Introduction
 
 This is some of my work at the [2022 Annual Frederick Jelinek Memorial Summer Workshop](https://www.clsp.jhu.edu/2022-eighth-frederick-jelinek-memorial-summer-workshop/).
