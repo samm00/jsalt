@@ -38,4 +38,5 @@ with Pool(cores) as pool:
     data['valid'] = output[1]
     data['test'] = output[2]
 
-open(f'data/data_pitch_p{sys.argv[1]}.json','w').write(json.dumps(data))
+with open(f'data/data_pitch_p{sys.argv[1]}.json','w') as f:
+    f.write(json.dumps(data))
