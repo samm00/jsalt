@@ -14,9 +14,11 @@ Audio data is pulled from the [FLERUS dataset](https://huggingface.co/datasets/g
 
 Pitch reconstruction starts off with an audio file.
 
-This audio file is then fed into a pre-trained model (ie. HuBERT, Mockingjay, etc). The hiddens states are then extracted from the ouptput. In this project, this was done using the [S3PRL toolkit](https://github.com/s3prl/s3prl).
+This audio file is then fed into a pre-trained model (ie. HuBERT, Mockingjay, etc). The hiddens states (the model's internal representation of the audio) are then extracted from the ouptput. In this project, this was done using the [S3PRL toolkit](https://github.com/s3prl/s3prl).
 
-Separately, a pitch tracking algorithm (in this case, [pYAAPT](http://bjbschmitt.github.io/AMFM_decompy/pYAAPT.html) is used, but others like kaldi can work as well).
+Separately, a pitch tracking algorithm (in this case, [pYAAPT](http://bjbschmitt.github.io/AMFM_decompy/pYAAPT.html), others like kaldi can work as well) is used to create "ground truth" pitch information for the audio file (since FLEURS is not labeled for pitch).
+
+A linear regression is then run against the pYAAPT pitch frames and the hidden states of the model, after aligning the frames. Mean Squared Error is calculated. 
 
 ![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
 
