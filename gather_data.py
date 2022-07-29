@@ -3,11 +3,11 @@ import json
 import os
 import glob
 
-def make_data(feature):
+def make_data(feature = None):
     '''
     Gather data from FLEURS and write it to a json file in the correct format for S3PRL
 
-    feature: a label id from FLEURS (ie. lang_id, transcription, ...)
+    feature: None | a label id from FLEURS (ie. lang_id, transcription, ...)
     '''
 
     dataset = load_dataset('google/fleurs', 'all')
@@ -16,15 +16,15 @@ def make_data(feature):
     open('data_gender1.json','w').write(json.dumps({ 
         'train': {sentence['audio']['path']: {
             'wav_path': path + 'train/' + sentence['audio']['path'], 
-            'label': str(sentence[feature])
+            'label': str(sentence[feature]) if feature else ''
         } for sentence in dataset['train'] if sentence['gender'] == 1},
         'valid': {sentence['audio']['path']: {
             'wav_path': path + 'dev/' + sentence['audio']['path'], 
-            'label': str(sentence[feature])
+            'label': str(sentence[feature]) if feature else ''
         } for sentence in dataset['validation'] if sentence['gender'] == 1},
         'test': {sentence['audio']['path']: {
             'wav_path': path + 'test/' + sentence['audio']['path'], 
-            'label': str(sentence[feature])
+            'label': str(sentence[feature]) if feature else ''
         } for sentence in dataset['test'] if sentence['gender'] == 1}
     }))
 
