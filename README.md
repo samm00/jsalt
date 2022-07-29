@@ -32,6 +32,14 @@ Here, zero-shot multilingual pitch reconstruction is performed using the above m
 
 TODO
 
+### Methods
+
+#### gather_data.py
+
+Gather data from FLEURS
+
+#### collect_
+
 ### Data Examples
 
 TODO
