@@ -16,4 +16,4 @@ TODO
 
 ### Pitch Reconstruction
 
-![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction" =250x)
+![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction" 250x)
