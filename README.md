@@ -26,7 +26,11 @@ A linear regression is then run against the pYAAPT pitch frames and the hidden s
 
 Many of pre-trained models are pre-trained only on Enlgish data. This begs the question: how well do these models capture pitch information from other languages? Does learning to represent pitch in one language transfer over to others?
 
+Here, zero-shot multilingual pitch reconstruction is performed using the above method. The results follow:
 
+### Results
+
+TODO
 
 ### Data Examples
 
