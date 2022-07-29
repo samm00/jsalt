@@ -26,12 +26,8 @@ with torch.no_grad():
     wav_lens = torch.IntTensor([int(len(wav)) for wav in wavs]).cuda()
     wavs = pad_sequence(wavs, True, 500000).cuda()
 
-    print(wavs[0])
     wavs = wavs.chunk(batches)
     wav_lens = wav_lens.chunk(batches)
-
-    print(wavs[0])
-    print(wav_lens[0])
 
     names = np.split(np.array([k for k in data['test'].keys() if lang_id[k] == sys.argv[1]]), [len(wav_len) for wav_len in wav_lens])
 
