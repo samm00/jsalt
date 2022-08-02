@@ -5,38 +5,36 @@ from multiprocessing import Pool
 import os
 import sys
 
-cores = int(os.environ['SLURM_JOB_NUM_NODES']) * int(os.environ['SLURM_CPUS_PER_TASK'])
+lang_id = sys.argv[1]
 
 def analyze(audio):
     '''
     Run pYAAPT, and return None if error
     '''
     try:
-        return list(pYAAPT.yaapt(basic.SignalObj(audio)).samp_values)
+        return list(pYAAPT.yaapt(basic.SignalObj(audio)).values)
     except:
         return None
 
 def make_data(piece):
     '''
-    Make data for the portion of the data in the current stride (set by sys arg, so that the script can be run in parallel, otherwise it would take days on a good cpu)
+    Make data for a specific language.
 
-    Stride is set in tandem with the sys args so the whole dataset is used. When there is no more dev or test data, it will just skip it
+    When there is no more dev or test data, it will just skip it.
     '''
     try:
-        stride = 550 
-        subset = list(piece.items())[stride*int(sys.argv[1]):stride*int(sys.argv[1])+stride]
-        res = {audio_name: {'wav_path': info['wav_path'], 'label': analyze(info['wav_path'])} for audio_name, info in subset}        
+        res = {audio_name: analyze(info['wav_path']) for audio_name, info in piece.items() if info['label'] == lang_id}        
         return res
     except:
         return {}
 
 data = json.load(open('data.json', 'r'))
 
+cores = int(os.environ['SLURM_JOB_NUM_NODES']) * int(os.environ['SLURM_CPUS_PER_TASK'])
 with Pool(cores) as pool:
     output = pool.map(make_data, data.values())
     data['train'] = output[0]
     data['valid'] = output[1]
     data['test'] = output[2]
 
-with open(f'data/data_pitch_p{sys.argv[1]}.json','w') as f:
-    f.write(json.dumps(data))
+open(f'data/data_pitch_full{sys.argv[1]}.json','w').write(json.dumps(data))
