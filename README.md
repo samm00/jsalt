@@ -48,11 +48,17 @@ Run with `make_pitch_data.py n`, where `n` is the FLEURS language id
 
 Use S3PRL to get hidden states for all data.
 
-Called by `linear_regress.py`
+Called by `linear_regress.py` because the amount of data is so large, it is far quicker to keep in memory than to write and save.
 
 #### linear_regress.py
 
-TODO
+Peform linear regressions for train/test data for all languages
+
+Run with `linear_regress.py n`, where `n` is the FLEURS language id 
+
+#### analysis.py
+
+Cluster and report results meaningfully
 
 ### Data Examples
 
