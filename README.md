@@ -42,7 +42,7 @@ Gather data from FLEURS
 
 Generate labels using pYAAPT 
 
-Run with `make_pitch_data.py n`, where n is the FLEURS language id 
+Run with `make_pitch_data.py n`, where `n` is the FLEURS language id 
 
 #### combine_pitch_data.py
 
