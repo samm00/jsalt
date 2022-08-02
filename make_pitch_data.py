@@ -8,15 +8,13 @@ import sys
 lang_id = sys.argv[1]
 
 # Conform to model - this is for HuBERT
-frame_length = 25
-frame_space = 20
 
 def analyze(audio):
     '''
     Run pYAAPT, and return None if error
     '''
     try:
-        return list(pYAAPT.yaapt(basic.SignalObj(audio), frame_length, frame_space).values)
+        return list(pYAAPT.yaapt(basic.SignalObj(audio), **{'frame_length' : 25.0, 'frame_space' : 20.0}).values) # Conform parameters to model - this is for HuBERT
     except:
         return None
 
