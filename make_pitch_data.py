@@ -7,12 +7,16 @@ import sys
 
 lang_id = sys.argv[1]
 
+# Conform to model - this is for HuBERT
+frame_length = 25
+frame_space = 20
+
 def analyze(audio):
     '''
     Run pYAAPT, and return None if error
     '''
     try:
-        return list(pYAAPT.yaapt(basic.SignalObj(audio)).values)
+        return list(pYAAPT.yaapt(basic.SignalObj(audio), frame_length, frame_space).values)
     except:
         return None
 
@@ -37,4 +41,4 @@ with Pool(cores) as pool:
     data['valid'] = output[1]
     data['test'] = output[2]
 
-open(f'data/data_pitch_full{sys.argv[1]}.json','w').write(json.dumps(data))
+open(f'data/data_pitch_hu{sys.argv[1]}.json','w').write(json.dumps(data))
