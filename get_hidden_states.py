@@ -19,7 +19,6 @@ def get_states(name, lang_id):
     for data_set, states in zip([data['train'], data['test']], [train_states, test_states]):
         with torch.no_grad():
             wavs = [read(audio['wav_path'])[1] for name, audio in data_set.items() if data_set[name]['label'] == lang_id]
-            #wav[:112000] if len(wav) > 112000 else pad(wav, (0, 112000 - wav.shape[0]), 'constant')
             wavs = [torch.FloatTensor(wav).reshape(1, -1, 1).cuda() for wav in wavs]
             wav_lens = [torch.IntTensor([wav.size()[1]]).cuda() for wav in wavs]
 
