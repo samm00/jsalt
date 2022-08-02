@@ -42,7 +42,7 @@ Gather data from FLEURS
 
 Generate labels using pYAAPT 
 
-Run with `for i in {0..LEN_TRAIN/500}; do make_pitch_data.py $i; done;` to get all pieces
+Run with `make_pitch_data.py n`, where n is the FLEURS language id 
 
 #### combine_pitch_data.py
 
@@ -50,9 +50,9 @@ Combine the different outputs of make_pitch_data.py into one json
 
 #### get_hidden_states.py
 
-Use S3PRL to get hidden states for all data
+Use S3PRL to get hidden states for all data.
 
-Run with `for i in {0..101}; do make_pitch_data.py $i; done;` to get all languages
+Called by `linear_regress.py`
 
 #### linear_regress.py
 
