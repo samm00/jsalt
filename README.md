@@ -32,6 +32,8 @@ Here, zero-shot multilingual pitch reconstruction is performed using the above m
 
 TODO
 
+> Preliminary: Overall, there does not appear to be too much of a difference between other languages and English, with tonal languages prforming slightly better. Numbers and figures to come when the last pieces of data are evaluated.
+
 ## Code
 
 #### gather_data.py
@@ -55,10 +57,6 @@ Called by `linear_regress.py` because the amount of data is so large, it is far 
 Peform linear regressions for train/test data for all languages
 
 Run with `linear_regress.py n`, where `n` is the FLEURS language id 
-
-#### analysis.py
-
-Cluster and report results meaningfully
 
 ## Data Examples
 
