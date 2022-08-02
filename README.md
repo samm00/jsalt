@@ -44,10 +44,6 @@ Generate labels using pYAAPT
 
 Run with `make_pitch_data.py n`, where `n` is the FLEURS language id 
 
-#### combine_pitch_data.py
-
-Combine the different outputs of make_pitch_data.py into one json
-
 #### get_hidden_states.py
 
 Use S3PRL to get hidden states for all data.
