@@ -1,41 +1,34 @@
 import torch
-from torch.nn.utils.rnn import pad_sequence
 from s3prl.nn.upstream import S3PRLUpstream
 import json
 from scipy.io.wavfile import read
 import sys
-import numpy as np
+from numpy import pad
 
-batches = 25
-lang_id = sys.argv[1]
+def get_states(name, lang_id):
+    model = S3PRLUpstream(name).cuda()
+    model.eval()
+    model_layers = 13
 
-name = 'hubert' # update with desired model
-model = S3PRLUpstream(name).cuda()
-model.eval()
+    data = {}
+    with open(f'data.json', 'r') as f:
+        data = json.load(f)
 
-data = {}
-with open(f'data_pitch_all_filt.json', 'r') as f:
-    data = json.load(f)
+    train_states = [{}] * model_layers
+    test_states = [{}] * model_layers
+    for data_set, states in zip([data['train'], data['test']], [train_states, test_states]):
+        with torch.no_grad():
+            wavs = [read(audio['wav_path'])[1] for name, audio in data_set.items() if data_set[name]['label'] == lang_id]
+            #wav[:112000] if len(wav) > 112000 else pad(wav, (0, 112000 - wav.shape[0]), 'constant')
+            wavs = [torch.FloatTensor(wav).reshape(1, -1, 1).cuda() for wav in wavs]
+            wav_lens = [torch.IntTensor([wav.size()[1]]).cuda() for wav in wavs]
 
-lang_id = {}
-with open(f'data.json', 'r') as f:
-    lang_id = {name: info['label'] for name, info in json.load(f)['test'].items()}
+            names = [name for name in data_set.keys() if data_set[name]['label'] == lang_id]
 
-states = {}
-with torch.no_grad():
-    wavs = [torch.FloatTensor(read(audio['wav_path'])[1]).reshape(-1, 1) for name, audio in data['test'].items() if lang_id[name] == lang_id]
-    wav_lens = torch.IntTensor([int(len(wav)) for wav in wavs]).cuda()
-    wavs = pad_sequence(wavs, True, 500000).cuda()
+            for wav, wav_len, name in zip(wavs, wav_lens, names):
+                hidden_states, hidden_states_len = model(wav, wav_len).slice(2)
 
-    wavs = wavs.chunk(batches)
-    wav_lens = wav_lens.chunk(batches)
+                for layer in range(model_layers):
+                    states[layer][name] = hidden_states[layer][0].tolist()
 
-    names = np.split(np.array([k for k in data['test'].keys() if lang_id[k] == lang_id]), [len(wav_len) for wav_len in wav_lens])
-
-    for wav_batch, wav_batch_len, names_batch in zip(wavs, wav_lens, names):
-        hidden_states, hidden_states_len = model(wav_batch, wav_batch_len).slice(2)
-        
-        states = {**states, **{name: state.tolist() for name, state in zip(names_batch, hidden_states)}}
-
-with open(f'states/states{lang_id}.json', 'w') as f:
-    f.write(json.dumps(states))
+    return train_states, test_states
