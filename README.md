@@ -2,7 +2,7 @@
 
 > WORK IN PROGRESS -- Information is in the process of being added
 
-### Introduction
+## Introduction
 
 This is some of my work at the [2022 Annual Frederick Jelinek Memorial Summer Workshop](https://www.clsp.jhu.edu/2022-eighth-frederick-jelinek-memorial-summer-workshop/).
 
@@ -10,7 +10,7 @@ This repository highlights a pitch reconstruction task which investigates cross-
 
 Audio data is pulled from the [FLERUS dataset](https://huggingface.co/datasets/google/fleurs), and pitch labels are created using [pYAAPT](http://bjbschmitt.github.io/AMFM_decompy/pYAAPT.html).
 
-### Pitch Reconstruction
+## Pitch Reconstruction
 
 Pitch reconstruction starts off with an audio file.
 
@@ -22,17 +22,17 @@ A linear regression is then run against the pYAAPT pitch frames and the hidden s
 
 ![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
 
-### Cross-Lingual Transfer in Pitch Reconstruction
+## Cross-Lingual Transfer in Pitch Reconstruction
 
 Many of pre-trained models are pre-trained only on Enlgish data. This begs the question: how well do these models capture pitch information from other languages? Does learning to represent pitch in one language transfer over to others?
 
 Here, zero-shot multilingual pitch reconstruction is performed using the above method. The results follow:
 
-### Results
+## Results
 
 TODO
 
-### Code
+## Code
 
 #### gather_data.py
 
@@ -60,6 +60,6 @@ Run with `linear_regress.py n`, where `n` is the FLEURS language id
 
 Cluster and report results meaningfully
 
-### Data Examples
+## Data Examples
 
 TODO
