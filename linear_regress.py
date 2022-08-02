@@ -1,10 +1,10 @@
-import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 import json
 import sys
 import pitch_recons
+from math import ceil
 
 lang_id = sys.argv[1]
 
@@ -16,6 +16,7 @@ x_train = [[utter_states for aud_states in layer for utter_states in aud_states]
 x_test = [[x_test[layer][name] for name in sorted(x_test[layer])] for layer in range(13)]
 x_test = [[utter_states for aud_states in layer for utter_states in aud_states] for layer in x_test]
 
+#remove 2 data points
 y_train = []
 y_test = []
 with open(f'data/data_pitch{lang_id}.json', 'r') as f:
@@ -26,6 +27,10 @@ with open(f'data/data_pitch{lang_id}.json', 'r') as f:
 
     for name in sorted(jsn['test']):
         y_test += jsn['test'][name][::2]
+
+# Align mismatched frames
+x_train = [x[(len(x) - len(y_train)) // 2:ceil((len(x) - len(y_train)) / 2)] for x in x_train]
+x_test = [x[(len(x) - len(y_test)) // 2:ceil((len(x) - len(y_test)) / 2)] for x in x_test]
 
 for layer in range(13):
     print('---------')
