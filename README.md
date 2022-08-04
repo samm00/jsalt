@@ -64,7 +64,7 @@ Run with `linear_regress.py n`, where `n` is the FLEURS language id
 
 https://user-images.githubusercontent.com/55806453/182903388-4917748b-f5a6-4ec1-82b7-222100969d8b.mp4
 
-![English Sample Reconstruction](img/english_sample "English Sample Reconstruction")
+![English Sample Reconstruction](https://user-images.githubusercontent.com/55806453/182904240-96cf09f4-d60f-48fe-8205-5801793721fb.png)
 
 
 
