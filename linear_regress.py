@@ -18,7 +18,6 @@ x_test = pitch_recons.get_states(model, lang_id, 'test', layers)
 x_test = [[x_test[layer][name] for name in sorted(x_test[layer])] for layer in layers]
 x_test = [[utter_states for aud_states in layer for utter_states in aud_states] for layer in x_test]
 
-#remove 2 data points
 y_train = []
 y_test = []
 with open(f'data/data_pitch{lang_id}.json', 'r') as f:
