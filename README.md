@@ -18,7 +18,7 @@ This audio file is then fed into a pre-trained model (ie. HuBERT, Mockingjay, et
 
 Separately, a pitch tracking algorithm (in this case, [pYAAPT](http://bjbschmitt.github.io/AMFM_decompy/pYAAPT.html), others like kaldi can work as well) is used to create "ground truth" pitch information for the audio file (since FLEURS is not labeled for pitch).
 
-A linear regression of the pYAAPT pitch frames against the hidden states is run, after aligning the frames. Mean Squared Error is calculated on the test set. If the hidden states correlate with the pitch information frame by frame, we can say that the model's internal representation does include some pitch information. 
+A linear regression of the pYAAPT pitch frames against the hidden states is run, after aligning the frames. Mean Squared Error is calculated on the test set outputs after setting anyhting predicted to be 60Hz to 0 and applying a weak convolution. If the hidden states correlate with the pitch information frame by frame, we can say that the model's internal representation does include some pitch information. 
 
 ![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
 
