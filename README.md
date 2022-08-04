@@ -20,7 +20,7 @@ Separately, a pitch tracking algorithm (in this case, [pYAAPT](http://bjbschmitt
 
 A linear regression of the pYAAPT pitch frames against the hidden states is run, after aligning the frames. Mean Squared Error is calculated on the test set outputs after setting anyhting predicted to be 60Hz to 0 and applying a weak convolution. If the hidden states correlate with the pitch information frame by frame, we can say that the model's internal representation does include some pitch information. 
 
-![Pitch Reconstruction Diagram](img/pitch_recon.png "Pitch Reconstruction")
+![Pitch Reconstruction Diagram](https://user-images.githubusercontent.com/55806453/182929477-25266ed3-184a-4ca6-b03e-c28a88afa1e3.png)
 
 ## Cross-Lingual Transfer in Pitch Reconstruction
 
@@ -114,7 +114,7 @@ ubusika bungaba nzima kakhulu amazing okushisa angase adlulele ngale kweqhwa kod
 
 https://user-images.githubusercontent.com/55806453/182905829-9f193f08-e764-4740-ba7a-92c41ba9282c.mp4
 
-![image](https://user-images.githubusercontent.com/55806453/182906465-ba6c79d5-24f6-4cad-b845-e77ac3bd58a8.png)
+![Zulu Sample Reconstruction](https://user-images.githubusercontent.com/55806453/182929661-a3d6cf55-7b2a-468f-b9c0-c46f34de16a6.png)
 
 
 
