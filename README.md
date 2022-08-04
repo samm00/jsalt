@@ -32,7 +32,7 @@ Here, zero-shot multilingual pitch reconstruction is performed using the above m
 
 TODO
 
-> Preliminary: Overall, there does not appear to be too much of a difference between other languages and English, with tonal languages prforming slightly better. Numbers and figures to come when the last pieces of data are evaluated.
+> All results on HuBERT -- fbank baseline results pending
 
 #### Results For All Languages - Best HuBERT Layer
 
