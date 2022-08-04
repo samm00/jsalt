@@ -14,7 +14,7 @@ Audio data is pulled from the [FLERUS dataset](https://huggingface.co/datasets/g
 
 Pitch reconstruction starts off with an audio file.
 
-This audio file is then fed into a pre-trained model (ie. HuBERT, Mockingjay, etc). The hiddens states (the model's internal representation of the audio) are then extracted from the ouptput. In this project, this was done using the [S3PRL toolkit](https://github.com/s3prl/s3prl).
+This audio file is then fed into a pre-trained model (in this case HuBERT). The hiddens states (the model's internal representation of the audio) are then extracted from the ouptput. In this project, this was done using the [S3PRL toolkit](https://github.com/s3prl/s3prl).
 
 Separately, a pitch tracking algorithm (in this case, [pYAAPT](http://bjbschmitt.github.io/AMFM_decompy/pYAAPT.html), others like kaldi can work as well) is used to create "ground truth" pitch information for the audio file (since FLEURS is not labeled for pitch).
 
@@ -33,6 +33,30 @@ Here, zero-shot multilingual pitch reconstruction is performed using the above m
 TODO
 
 > Preliminary: Overall, there does not appear to be too much of a difference between other languages and English, with tonal languages prforming slightly better. Numbers and figures to come when the last pieces of data are evaluated.
+
+#### Results For All Languages - Best HuBERT Layer
+
+Interestingly, English [Red] does worse than Average [Black].
+
+![All Language Results](https://user-images.githubusercontent.com/55806453/182918352-28c8e83e-c15c-4ee6-927f-1563d1ca2490.png)
+
+#### Results For All Layers Across Languages
+
+It appears generally true that the earlier layers of the model encode more pitch information. The black bar is the average across layers.
+
+![All Layers Results](https://user-images.githubusercontent.com/55806453/182926553-783ba8f7-b57d-43c7-8a40-f45e3f367d62.png)
+
+#### Trends: Language Group
+
+FLEURS provides language group ids. The results do not seem particularly different among the groups.
+
+![Language Group Results](https://user-images.githubusercontent.com/55806453/182927867-7f784477-aaba-4758-89b6-fe33c223a730.png)
+
+#### Trends: Language Type
+
+There does appear to be minor differences among tonal, pitch accent, and non-tonal languages. Tonal langugaes appear to do slightly better on average.
+
+![Language Type Results](https://user-images.githubusercontent.com/55806453/182929034-f938967a-273f-4dda-bcc2-15904c75688a.png)
 
 ## Code
 
