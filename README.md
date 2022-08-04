@@ -30,8 +30,6 @@ Here, zero-shot multilingual pitch reconstruction is performed using the above m
 
 ## Results
 
-TODO
-
 > All results on HuBERT -- fbank baseline results pending
 
 #### Results For All Languages - Best HuBERT Layer
