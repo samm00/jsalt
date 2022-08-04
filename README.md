@@ -82,3 +82,15 @@ https://user-images.githubusercontent.com/55806453/182904728-1024badc-bcb1-48fb-
 
 https://user-images.githubusercontent.com/55806453/182905384-6d452ed0-168c-4278-9416-bff5f70f6f68.mp4
 
+![Sorani Kurdish Sample Reconstruction](https://user-images.githubusercontent.com/55806453/182905695-07a0968d-7a88-4708-8e2e-0d6f9bd0003a.png)
+
+#### Zulu Sample Reconstruction
+
+ubusika bungaba nzima kakhulu amazing okushisa angase adlulele ngale kweqhwa kodwa umoya kanye nomswakama sekuhlangene kwenza kubande ngaphezu kwalokho isikali sokushisa esikushoyo
+
+https://user-images.githubusercontent.com/55806453/182905829-9f193f08-e764-4740-ba7a-92c41ba9282c.mp4
+
+![image](https://user-images.githubusercontent.com/55806453/182906465-ba6c79d5-24f6-4cad-b845-e77ac3bd58a8.png)
+
+
+
