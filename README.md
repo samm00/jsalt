@@ -61,3 +61,7 @@ Run with `linear_regress.py n`, where `n` is the FLEURS language id
 ## Data Examples
 
 ![English Audio](img/3428105909614355760_eng.wav "English Audio")
+<audio controls="controls">
+  <source type="audio/mp3" src="img/3428105909614355760_eng.wav"></source>
+  <p>Your browser does not support the audio element.</p>
+</audio>
