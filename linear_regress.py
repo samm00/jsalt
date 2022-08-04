@@ -7,13 +7,15 @@ import pitch_recons
 from math import ceil
 
 lang_id = sys.argv[1]
+layers = range(13)
+model = 'hubert'
 
-x_train, x_test = pitch_recons.get_states('hubert', lang_id)
-
-x_train = [[x_train[layer][name] for name in sorted(x_train[layer])] for layer in range(13)]
+x_train = pitch_recons.get_states(model, lang_id, 'train', layers)
+x_train = [[x_train[layer][name] for name in sorted(x_train[layer])] for layer in layers]
 x_train = [[utter_states for aud_states in layer for utter_states in aud_states] for layer in x_train]
 
-x_test = [[x_test[layer][name] for name in sorted(x_test[layer])] for layer in range(13)]
+x_test = pitch_recons.get_states(model, lang_id, 'test', layers)
+x_test = [[x_test[layer][name] for name in sorted(x_test[layer])] for layer in layers]
 x_test = [[utter_states for aud_states in layer for utter_states in aud_states] for layer in x_test]
 
 #remove 2 data points
@@ -33,7 +35,7 @@ with open(f'data/data_pitch{lang_id}.json', 'r') as f:
 # x_test = [x[(len(x) - len(y_test)) // 2:ceil((len(x) - len(y_test)) / 2)] for x in x_test]
 
 mses = []
-for layer in range(13):
+for layer in layers:
     print('---------')
 
     regr = LinearRegression()
