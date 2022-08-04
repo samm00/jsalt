@@ -60,4 +60,4 @@ Run with `linear_regress.py n`, where `n` is the FLEURS language id
 
 ## Data Examples
 
-![English Audio](img/3428105909614355760[eng].wav "English Audio")
+![English Audio](img/3428105909614355760_eng.wav "English Audio")
