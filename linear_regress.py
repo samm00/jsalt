@@ -32,19 +32,19 @@ with open(f'data/data_pitch{lang_id}.json', 'r') as f:
 # x_train = [x[(len(x) - len(y_train)) // 2:ceil((len(x) - len(y_train)) / 2)] for x in x_train]
 # x_test = [x[(len(x) - len(y_test)) // 2:ceil((len(x) - len(y_test)) / 2)] for x in x_test]
 
+mses = []
 for layer in range(13):
     print('---------')
 
     regr = LinearRegression()
     regr.fit(x_train[layer], y_train)
 
-    scr = regr.score(x_test[layer], y_test)
-    print(f'layer {layer} scr: {scr}')
-
     y_pred = regr.predict(x_test)
 
     mse = mean_squared_error(y_test, y_pred)
     print(f'layer {layer} mse: {mse}')
+    mses.append(str(mse))
 
-    r2 = r2_score(y_test, y_pred)
-    print(f'layer {layer} r2: {r2}')
+print('All MSE:')
+print('\t'.join(mses))
+print(f'lang_id: {lang_id}')
