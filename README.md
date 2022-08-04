@@ -62,9 +62,19 @@ Run with `linear_regress.py n`, where `n` is the FLEURS language id
 
 #### English Sample Reconstruction
 
+the winter can be deceptively chilly temperatures rarely go below freezing but the wind and humidity combine to make it feel colder than what the thermometer says
+
 https://user-images.githubusercontent.com/55806453/182903388-4917748b-f5a6-4ec1-82b7-222100969d8b.mp4
 
 ![English Sample Reconstruction](https://user-images.githubusercontent.com/55806453/182904240-96cf09f4-d60f-48fe-8205-5801793721fb.png)
+
+#### Mandarin Sample Reconstruction
+
+冬 天 可 能 会 比 看 上 去 显 得 更 冷 温 度 很 少 低 于 零 度 但 当 风 和 湿 度 结 合 在 一 起 会 让 人 感 觉 比 温 度 计 显 示 的 温 度 要 冷
+
+https://user-images.githubusercontent.com/55806453/182904728-1024badc-bcb1-48fb-a59f-13d6fdf7a7d9.mp4
+
+![Mandarin Sample Reconstruction](https://user-images.githubusercontent.com/55806453/182904507-c3189d39-a9dc-4222-b18f-17a87fa583a3.png)
 
 
 
