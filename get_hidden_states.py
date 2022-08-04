@@ -5,29 +5,27 @@ from scipy.io.wavfile import read
 import sys
 from numpy import pad
 
-def get_states(name, lang_id):
+def get_states(name, lang_id, data_set, layers):
     model = S3PRLUpstream(name).cuda()
     model.eval()
-    model_layers = 13
 
     data = {}
     with open(f'data.json', 'r') as f:
-        data = json.load(f)
+        data = json.load(f)[data_set]
 
-    train_states = [{}] * model_layers
-    test_states = [{}] * model_layers
-    for data_set, states in zip([data['train'], data['test']], [train_states, test_states]):
+    all_states = {layer: {} for layer in layers}
+    for states in all_states:
         with torch.no_grad():
-            wavs = [read(audio['wav_path'])[1] for name, audio in data_set.items() if data_set[name]['label'] == lang_id]
+            wavs = [read(audio['wav_path'])[1] for name, audio in data.items() if data[name]['label'] == lang_id]
             wavs = [torch.FloatTensor(wav).reshape(1, -1, 1).cuda() for wav in wavs]
             wav_lens = [torch.IntTensor([wav.size()[1]]).cuda() for wav in wavs]
 
-            names = [name for name in data_set.keys() if data_set[name]['label'] == lang_id]
+            names = [name for name in data.keys() if data[name]['label'] == lang_id]
 
             for wav, wav_len, name in zip(wavs, wav_lens, names):
-                hidden_states, hidden_states_len = model(wav, wav_len).slice(2)
+                hidden_states = model(wav, wav_len)['hidden_states']
 
-                for layer in range(model_layers):
+                for layer in layers:
                     states[layer][name] = hidden_states[layer][0].tolist()
 
-    return train_states, test_states
+    return states
