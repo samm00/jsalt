@@ -28,9 +28,9 @@ with open(f'data/data_pitch{lang_id}.json', 'r') as f:
     for name in sorted(jsn['test']):
         y_test += jsn['test'][name][::2]
 
-# Align mismatched frames
-x_train = [x[(len(x) - len(y_train)) // 2:ceil((len(x) - len(y_train)) / 2)] for x in x_train]
-x_test = [x[(len(x) - len(y_test)) // 2:ceil((len(x) - len(y_test)) / 2)] for x in x_test]
+# Align mismatched frames if number of frames mismatch
+# x_train = [x[(len(x) - len(y_train)) // 2:ceil((len(x) - len(y_train)) / 2)] for x in x_train]
+# x_test = [x[(len(x) - len(y_test)) // 2:ceil((len(x) - len(y_test)) / 2)] for x in x_test]
 
 for layer in range(13):
     print('---------')
