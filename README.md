@@ -76,7 +76,9 @@ https://user-images.githubusercontent.com/55806453/182904728-1024badc-bcb1-48fb-
 
 ![Mandarin Sample Reconstruction](https://user-images.githubusercontent.com/55806453/182904507-c3189d39-a9dc-4222-b18f-17a87fa583a3.png)
 
+#### Sorani Kurdish Sample Reconstruction
 
+زستان دەکرێت زۆر سارد بێت پلەی گەرمی زۆر بە دەگمەن بۆ بەستان دادەبەزێت بەڵام با و شێداری یەک دەگرن بۆ ئەوەی هەست بکەیت ساردترە لەوەی گەرمیپێو نیشانی دەدات
 
-
+https://user-images.githubusercontent.com/55806453/182905384-6d452ed0-168c-4278-9416-bff5f70f6f68.mp4
 
