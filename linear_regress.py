@@ -24,10 +24,10 @@ with open(f'data/data_pitch{lang_id}.json', 'r') as f:
     jsn = json.load(f)
 
     for name in sorted(jsn['train']):
-        y_train += jsn['train'][name][::2] # Get every other since pYAAPT uses 160 samples instead of Hubert's 320
+        y_train += jsn['train'][name]
 
     for name in sorted(jsn['test']):
-        y_test += jsn['test'][name][::2]
+        y_test += jsn['test'][name]
 
 # Align mismatched frames if number of frames mismatch
 # x_train = [x[(len(x) - len(y_train)) // 2:ceil((len(x) - len(y_train)) / 2)] for x in x_train]
