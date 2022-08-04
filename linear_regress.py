@@ -41,6 +41,10 @@ for layer in layers:
     regr.fit(x_train[layer], y_train)
 
     y_pred = regr.predict(x_test)
+    kernel_size = 2
+    kernel = np.ones(kernel_size) / kernel_size
+    y_pred = np.convolve(y_pred, kernel, mode='same')
+    y_pred = [y if y >= 60 else 0 for y in y_pred]
 
     mse = mean_squared_error(y_test, y_pred)
     print(f'layer {layer} mse: {mse}')
